@@ -37,7 +37,7 @@ function Hero() {
                     <div ref={setRef} data-delay="620" className="hero-cta reveal">
                         <a href="#projects" className="btn btn-secondary">View My Work</a>
                         <a
-                            href="/Sara-Aithssayene-Resume.pdf"
+                            href={`${import.meta.env.BASE_URL}Sara-Aithssayene-Resume.pdf`}
                             className="btn btn-secondary"
                             download
                         >
