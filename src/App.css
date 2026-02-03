@@ -198,6 +198,19 @@ ul {
         justify-content: space-between;
     }
 
+    .brand-text {
+        display: none;
+    }
+
+    .brand-logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
     .menu-toggle {
         display: block;
     }
