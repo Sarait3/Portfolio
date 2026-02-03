@@ -194,21 +194,31 @@ ul {
 
 @media (max-width: 900px) {
     .nav-pill {
-        grid-template-columns: auto auto;
+        grid-template-columns: 1fr auto;
         justify-content: space-between;
     }
 
-    .brand-text {
-        display: none;
+    .brand {
+        min-width: 0;
     }
 
     .brand-logo {
-        width: 46px;
-        height: 46px;
+        display: none;
+    }
+
+    .brand-text {
+        display: inline;
+        font-size: 0.95rem;
+    }
+
+    .nav-actions {
+        gap: 8px;
     }
 
     .nav-cta {
-        display: none;
+        display: inline-flex;
+        padding: 8px 10px;
+        font-size: 0.8rem;
     }
 
     .menu-toggle {
