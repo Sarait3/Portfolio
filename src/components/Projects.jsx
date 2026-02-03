@@ -1,38 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import projects from "../data/projects";
+import ACADEMIC_PROJECTS from "../data/academicProjects";
+import useReveal from "../hooks/useReveal";
 
-const ACADEMIC_PROJECTS = [
-  {
-    id: "acad-1",
-    title: "Struct3D",
-    subtitle: "Python FastAPI + React",
-    description:
-      "A structural engineering pre-design calculator that automates load distribution and stimulates deformations.",
-    tech: ["Python", "FastAPI", "React"],
-    repoLink: "https://github.com/Sarait3",
-  },
-  {
-    id: "acad-2",
-    title: "My Recipe Book",
-    subtitle: "Web development",
-    description:
-      "A full-stack recipe website with user authentication, dynamic content, and a responsive design.",
-    tech:["HTML", "CSS", "JavaScript", "PHP"],
-    repoLink: "https://github.com/Sarait3",
-  },
-  {
-    id: "acad-3",
-    title: "Microservices (UMS + Messages)",
-    subtitle: "Spring Boot + JWT",
-    description:
-      "Enterprise-style services with REST APIs, auth concepts, and structured API design.",
-    tech: ["Java", "Spring", "JWT", "REST"],
-    repoLink: "https://github.com/Sarait3",
-  },
-];
 
 function Projects() {
+  const { setRef } = useReveal();
   const data = projects.slice(0, 4);
   const [current, setCurrent] = useState(0);
 
@@ -85,7 +59,7 @@ function Projects() {
     <section id="projects" className="projects">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">My Projects</h2>
+          <h2 ref={setRef} className="section-title reveal">My Projects</h2>
           <div className="section-divider"></div>
         </div>
 
@@ -94,7 +68,7 @@ function Projects() {
           <h3 className="projects-subtitle">Featured Projects</h3>
         </div>
 
-        <div className="featured-wrap">
+        <div ref={setRef} className="featured-wrap reveal">
           {data.length > 1 && (
             <>
               <button
@@ -184,7 +158,7 @@ function Projects() {
           <h3 className="projects-subtitle">Academic Work</h3>
         </div>
 
-        <div className="academic-grid" role="list">
+        <div ref={setRef} className="academic-grid reveal" role="list">
           {ACADEMIC_PROJECTS.map((p, idx) => (
             <article
               key={p.id}
