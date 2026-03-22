@@ -28,8 +28,9 @@ export default function useReveal(options = {}) {
 
         const r = el.getBoundingClientRect();
         const inView = r.top < vh * 0.92 && r.bottom > vh * 0.08;
+        const alreadyPassed = r.top <= vh * 0.08;
 
-        if (inView) {
+        if (inView || alreadyPassed) {
           const delay = el.getAttribute("data-delay");
           if (delay) el.style.transitionDelay = `${delay}ms`;
 

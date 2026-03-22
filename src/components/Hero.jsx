@@ -1,7 +1,9 @@
 import profilePic from "../assets/profile.png";
 import useReveal from "../hooks/useReveal";
+import { usePostHog } from '@posthog/react'
 
 function Hero() {
+    const posthog = usePostHog()
     const { setRef } = useReveal();
 
     return (
@@ -35,11 +37,18 @@ function Hero() {
                     </div>
 
                     <div ref={setRef} data-delay="620" className="hero-cta reveal">
-                        <a href="#projects" className="btn btn-secondary">View My Work</a>
+                        <a
+                            href="#projects"
+                            className="btn btn-secondary"
+                            onClick={() => posthog.capture('hero_cta_click', { target: 'projects' })}
+                        >
+                            View My Work
+                        </a>
                         <a
                             href={`${import.meta.env.BASE_URL}Sara-Aithssayene-Resume.pdf`}
                             className="btn btn-secondary"
                             download
+                            onClick={() => posthog.capture('resume_download', { location: 'hero' })}
                         >
                             Download My Resume
                         </a>

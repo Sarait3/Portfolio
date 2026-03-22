@@ -3,9 +3,10 @@ import { FaGithub } from "react-icons/fa";
 import projects from "../data/projects";
 import ACADEMIC_PROJECTS from "../data/academicProjects";
 import useReveal from "../hooks/useReveal";
-
+import { usePostHog } from '@posthog/react'
 
 function Projects() {
+  const posthog = usePostHog()
   const { setRef } = useReveal();
   const data = projects.slice(0, 4);
   const [current, setCurrent] = useState(0);
@@ -37,21 +38,48 @@ function Projects() {
     const el = slideRefs.current[current];
     if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
 
+    posthog.capture('project_viewed', {
+      project_name: data[current].title,
+      index: current
+    });
+
     userNavRef.current = false;
   }, [current]);
 
   const goPrev = () => {
     userNavRef.current = true;
-    setCurrent((p) => (p - 1 + data.length) % data.length);
+
+    const newIndex = (current - 1 + data.length) % data.length;
+
+    posthog.capture('carousel_navigation', {
+      direction: 'previous',
+      project_name: data[newIndex].title
+    });
+
+    setCurrent(newIndex);
   };
 
   const goNext = () => {
     userNavRef.current = true;
-    setCurrent((p) => (p + 1) % data.length);
+
+    const newIndex = (current + 1) % data.length;
+
+    posthog.capture('carousel_navigation', {
+      direction: 'next',
+      project_name: data[newIndex].title
+    });
+
+    setCurrent(newIndex);
   };
 
   const goTo = (i) => {
     userNavRef.current = true;
+
+    posthog.capture('carousel_direct_select', {
+      project_name: data[i].title,
+      index: i
+    });
+
     setCurrent(i);
   };
 
@@ -121,12 +149,32 @@ function Projects() {
 
                   <div className="project-links">
                     {p.demoLink && (
-                      <a href={p.demoLink} className="project-link" target="_blank" rel="noreferrer">
+                      <a
+                        href={p.demoLink}
+                        className="project-link"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() =>
+                          posthog.capture('live_demo_click', {
+                            project_name: p.title
+                          })
+                        }
+                      >
                         Live Demo
                       </a>
                     )}
                     {p.codeLink && (
-                      <a href={p.codeLink} className="project-link" target="_blank" rel="noreferrer">
+                      <a
+                        href={p.codeLink}
+                        className="project-link"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() =>
+                          posthog.capture('github_click', {
+                            project_name: p.title
+                          })
+                        }
+                      >
                         Source Code
                       </a>
                     )}

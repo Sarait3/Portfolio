@@ -1,7 +1,9 @@
 import { FaEnvelope, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import useReveal from "../hooks/useReveal";
+import { usePostHog } from '@posthog/react'
 
 function Contact() {
+  const posthog = usePostHog()
   const { setRef } = useReveal();
 
   return (
@@ -18,7 +20,12 @@ function Contact() {
         </p>
 
         <div className="contact-links">
-          <a ref={setRef} href="mailto:sara.aithssayene@gmail.com" className="contact-link reveal">
+          <a
+            ref={setRef}
+            href="mailto:sara.aithssayene@gmail.com"
+            className="contact-link reveal"
+            onClick={() => posthog.capture('contact_click', { method: 'email' })}
+          >
             <span className="contact-icon" aria-hidden="true">
               <FaEnvelope />
             </span>
@@ -34,6 +41,7 @@ function Contact() {
             target="_blank"
             rel="noreferrer"
             className="contact-link reveal"
+            onClick={() => posthog.capture('contact_click', { method: 'github' })}
           >
             <span className="contact-icon" aria-hidden="true">
               <FaGithub />
@@ -50,6 +58,7 @@ function Contact() {
             target="_blank"
             rel="noreferrer"
             className="contact-link reveal"
+            onClick={() => posthog.capture('contact_click', { method: 'linkedin' })}
           >
             <span className="contact-icon" aria-hidden="true">
               <FaLinkedinIn />
