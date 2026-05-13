@@ -15,6 +15,8 @@ import gitLogo from "../assets/logos/git.png";
 import githubLogo from "../assets/logos/github.png";
 import dockerLogo from "../assets/logos/docker.png";
 import androidStudioLogo from "../assets/logos/android-studio.png";
+import k8sLogo from "../assets/logos/Kubernetes.png";
+import postgresqlLogo from "../assets/logos/PostgreSQL.png";
 import useReveal from "../hooks/useReveal";
 
 const SKILL_GROUPS = [
@@ -43,6 +45,7 @@ const SKILL_GROUPS = [
     items: [
       { name: "MySQL", icon: mysqlLogo },
       { name: "MongoDB", icon: mongodbLogo },
+      { name: "PostgreSQL", icon: postgresqlLogo },
     ],
   },
   {
@@ -52,6 +55,7 @@ const SKILL_GROUPS = [
       { name: "GitHub", icon: githubLogo },
       { name: "Docker", icon: dockerLogo },
       { name: "Android Studio", icon: androidStudioLogo },
+      { name: "Kubernetes", icon: k8sLogo },
     ],
   },
 ];

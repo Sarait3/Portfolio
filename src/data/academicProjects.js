@@ -1,16 +1,38 @@
-
 const ACADEMIC_PROJECTS = [
   {
     id: "acad-1",
-    title: "Struct3D",
-    subtitle: "Python FastAPI + React",
+    title: "Best Buy Microservices Platform",
+    subtitle: "Kubernetes + AKS",
     description:
-      "A structural engineering pre-design calculator that automates load distribution and stimulates deformations.",
-    tech: ["Python", "FastAPI", "React"],
-    repoLink: "https://github.com/Sarait3/Struct3D",
+      "A cloud-native microservices application deployed on Azure Kubernetes Service (AKS) with containerized services, RabbitMQ messaging, MongoDB, and CI/CD workflows.",
+    tech: [
+      "Kubernetes",
+      "Docker",
+      "Azure AKS",
+      "RabbitMQ",
+      "MongoDB",
+      "GitHub Actions",
+    ],
+    repoLink: "https://github.com/Sara-Aithssayene/CST8915-Final-Project",
   },
   {
     id: "acad-2",
+    title: "Rideau Canal Ice Monitoring System",
+    subtitle: "Azure IoT + Stream Analytics",
+    description:
+      "A real-time cloud monitoring system that simulates IoT ice sensors and analyzes safety conditions using Azure services, Stream Analytics, Cosmos DB, and a live dashboard.",
+    tech: [
+      "Azure",
+      "IoT Hub",
+      "Stream Analytics",
+      "Cosmos DB",
+      "Blob Storage",
+      "Node.js",
+    ],
+    repoLink: "https://github.com/Sara-Aithssayene/rideau-canal-monitoring",
+  },
+  {
+    id: "acad-3",
     title: "NASA Image of the Day",
     subtitle: "Android App",
     description:
@@ -20,18 +42,9 @@ const ACADEMIC_PROJECTS = [
       "Java",
       "REST API",
       "JSON",
-      "NASA APOD API"
+      "NASA APOD API",
     ],
     repoLink: "https://github.com/Sarait3/NASAImageProject",
-  },
-  {
-    id: "acad-3",
-    title: "Microservices (UMS + Messages)",
-    subtitle: "Spring Boot + JWT",
-    description:
-      "Enterprise-style services with REST APIs, auth concepts, and structured API design.",
-    tech: ["Java", "Spring", "JWT", "REST"],
-    repoLink: "https://github.com/Sarait3/Twitter-Lite",
   },
 ];
 

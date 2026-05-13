@@ -2,9 +2,28 @@ import project1 from "../assets/project1.png";
 import project2 from "../assets/project2.png";
 import project3 from "../assets/project3.png";
 import project4 from "../assets/project4.png";
+import project5 from "../assets/project5.png";
 
 
 const projects = [
+  {
+    id: 1,
+    title: "Recall",
+    description:
+      "An AI-powered meeting intelligence platform using RAG, semantic search, transcript parsing, and multi-user authentication.",
+    category: "web",
+    image: project5,
+    tech: [
+      "React",
+      "FastAPI",
+      "PostgreSQL",
+      "pgvector",
+      "Supabase",
+      "LLM",
+    ],
+    demoLink: "https://recall-frontend-plum.vercel.app/",
+    codeLink: "https://github.com/Sarait3/Recall_Backend",
+  },
   {
     id: 1,
     title: "PlanIt Wise",
