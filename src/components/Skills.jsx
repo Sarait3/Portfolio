@@ -71,7 +71,7 @@ function Skills() {
           <div className="section-divider"></div>
 
           <p ref={setRef} data-delay="220" className="skills-subtitle reveal">
-            These tools reflect the technologies Iâ€™ve used in my academic work and personal projects, giving me exposure to 
+            These tools reflect the technologies I've used in my academic work and personal projects, giving me exposure to 
             different parts of the development stack.
           </p>
         </div>
